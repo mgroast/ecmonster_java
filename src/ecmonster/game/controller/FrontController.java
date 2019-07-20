@@ -24,10 +24,13 @@ public class FrontController extends FWFrontController {
 			nextPath = "index";
 		}
 		else if (pathInfo.equals("/item")) {
-			nextPath = new ItemController().showDetail();
+			nextPath = new ItemController().showDetail(webRequest, attributes);
 		}
-		else if (pathInfo.equals("/login")) {
-			nextPath = "login";
+		else if (pathInfo.equals("/auth/signin")) {
+			nextPath = new AuthController().signin(webRequest, attributes);
+		}
+		else if (pathInfo.equals("/auth/auth")) {
+			nextPath = new AuthController().auth(webRequest, attributes);
 		}
 		else if (pathInfo.equals("/home")) {
 			nextPath = "home";
